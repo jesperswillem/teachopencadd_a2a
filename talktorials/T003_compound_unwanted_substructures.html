@@ -746,19 +746,19 @@ described substructures which can help to identify such PAINS and provided a lis
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># load data from Talktorial T2</span>
-<span class="n">egfr_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
     <span class="n">HERE</span> <span class="o">/</span> <span class="s2">"../T002_compound_adme/data/A2A_compounds_lipinski.csv"</span><span class="p">,</span>
     <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="c1"># Drop unnecessary information</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Dataframe shape:"</span><span class="p">,</span> <span class="n">egfr_data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="n">egfr_data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"molecular_weight"</span><span class="p">,</span> <span class="s2">"n_hbd"</span><span class="p">,</span> <span class="s2">"n_hba"</span><span class="p">,</span> <span class="s2">"logp"</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">egfr_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Dataframe shape:"</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"molecular_weight"</span><span class="p">,</span> <span class="s2">"n_hbd"</span><span class="p">,</span> <span class="s2">"n_hba"</span><span class="p">,</span> <span class="s2">"logp"</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -771,7 +771,7 @@ Dataframe shape: (3545, 10)
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -852,7 +852,7 @@ Dataframe shape: (3545, 10)
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -867,7 +867,7 @@ Dataframe shape: (3545, 10)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -879,7 +879,7 @@ Dataframe shape: (3545, 10)
 <h3 id="Filter-for-PAINS">Filter for PAINS<a class="headerlink" href="#Filter-for-PAINS" title="Permalink to this headline">¶</a></h3>
 <p>The PAINS filter is already implemented in RDKit (<a class="reference external" href="http://rdkit.org/docs/source/rdkit.Chem.rdfiltercatalog.html">documentation</a>). Such pre-defined filters can be applied via the <code class="docutils literal notranslate"><span class="pre">FilterCatalog</span></code> class. Let’s learn how it can be used.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -891,14 +891,14 @@ Dataframe shape: (3545, 10)
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># search for PAINS</span>
 <span class="n">matches</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">clean</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">egfr_data</span><span class="o">.</span><span class="n">iterrows</span><span class="p">(),</span> <span class="n">total</span><span class="o">=</span><span class="n">egfr_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">iterrows</span><span class="p">(),</span> <span class="n">total</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
     <span class="n">molecule</span> <span class="o">=</span> <span class="n">Chem</span><span class="o">.</span><span class="n">MolFromSmiles</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">smiles</span><span class="p">)</span>
     <span class="n">entry</span> <span class="o">=</span> <span class="n">catalog</span><span class="o">.</span><span class="n">GetFirstMatch</span><span class="p">(</span><span class="n">molecule</span><span class="p">)</span>  <span class="c1"># Get the first matching PAINS</span>
     <span class="k">if</span> <span class="n">entry</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -915,7 +915,7 @@ Dataframe shape: (3545, 10)
         <span class="n">clean</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
 
 <span class="n">matches</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">matches</span><span class="p">)</span>
-<span class="n">egfr_data</span> <span class="o">=</span> <span class="n">egfr_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">clean</span><span class="p">]</span>  <span class="c1"># keep molecules without PAINS</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">clean</span><span class="p">]</span>  <span class="c1"># keep molecules without PAINS</span>
 </pre></div>
 </div>
 </div>
@@ -923,16 +923,16 @@ Dataframe shape: (3545, 10)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "3e9d6ecdb6aa47978a1ccb3895b35db1", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "b17886f71f4d47d08ae074ab21c26a86", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># NBVAL_CHECK_OUTPUT</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Number of compounds with PAINS: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">matches</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Number of compounds without PAINS: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">egfr_data</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Number of compounds without PAINS: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -947,7 +947,7 @@ Number of compounds without PAINS: 3452
 </div>
 <p>Let’s have a look at the first 3 identified PAINS.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -959,7 +959,7 @@ Number of compounds without PAINS: 3452
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -971,7 +971,7 @@ Number of compounds without PAINS: 3452
 <h3 id="Filter-and-highlight-unwanted-substructures">Filter and highlight unwanted substructures<a class="headerlink" href="#Filter-and-highlight-unwanted-substructures" title="Permalink to this headline">¶</a></h3>
 <p>Some lists of unwanted substructures, like PAINS, are already implemented in RDKit. However, it is also possible to use an external list and get the substructure matches manually. Here, we use the list provided in the supporting information from Brenk <em>et al.</em> (<a class="reference external" href="https://onlinelibrary.wiley.com/doi/full/10.1002/cmdc.200700139">Chem. Med. Chem. (2008), 3, 535-44</a>).</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -992,7 +992,7 @@ Number of unwanted substructures in collection: 104
 </div>
 <p>Let’s have a look at a few substructures.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1004,7 +1004,7 @@ Number of unwanted substructures in collection: 104
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1013,7 +1013,7 @@ Number of unwanted substructures in collection: 104
 </div>
 <p>Search our filtered dataframe for matches with these unwanted substructures.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1046,16 +1046,16 @@ Number of unwanted substructures in collection: 104
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "2b73bced6b6f4e5dbd1bdef19f6160f8", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "509f4447999f4bdaa77cbb703649683b", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># NBVAL_CHECK_OUTPUT</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Number of found unwanted substructure: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">matches</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Number of compounds without unwanted substructure: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">egfr_data</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Number of compounds without unwanted substructure: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1065,7 +1065,7 @@ Number of unwanted substructures in collection: 104
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Number of found unwanted substructure: 836
-Number of compounds without unwanted substructure: 3452
+Number of compounds without unwanted substructure: 2835
 </pre></div></div>
 </div>
 </section>
@@ -1073,7 +1073,7 @@ Number of compounds without unwanted substructure: 3452
 <h3 id="Highlight-substructures">Highlight substructures<a class="headerlink" href="#Highlight-substructures" title="Permalink to this headline">¶</a></h3>
 <p>Let’s have a look at the first 3 identified unwanted substructures. Since we have access to the underlying SMARTS patterns we can highlight the substructures within the RDKit molecules.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1089,7 +1089,7 @@ Number of compounds without unwanted substructure: 3452
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1101,7 +1101,7 @@ Number of compounds without unwanted substructure: 3452
 <h3 id="Substructure-statistics">Substructure statistics<a class="headerlink" href="#Substructure-statistics" title="Permalink to this headline">¶</a></h3>
 <p>Finally, we want to find the most frequent substructure found in our data set. The Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> provides convenient methods to group containing data and to retrieve group sizes.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1114,7 +1114,7 @@ Number of compounds without unwanted substructure: 3452
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="output_area docutils container">

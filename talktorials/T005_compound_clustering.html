@@ -852,8 +852,8 @@ div.rendered_html tbody tr:hover {
 <section id="Load-data-and-calculate-fingerprints">
 <h4 id="Load-data-and-calculate-fingerprints">Load data and calculate fingerprints<a class="headerlink" href="#Load-data-and-calculate-fingerprints" title="Permalink to this headline">¶</a></h4>
 <p>In this part the data is prepared and fingerprints are calculated.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -876,16 +876,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-The history saving thread hit an unexpected error (OperationalError('database is locked')).History will not be written to the database.
-</pre></div></div>
-</div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -895,14 +887,14 @@ The history saving thread hit an unexpected error (OperationalError('database is
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Load and have a look into data</span>
 <span class="c1"># Filtered data taken from **Talktorial T002**</span>
 <span class="n">compound_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
-    <span class="n">HERE</span> <span class="o">/</span> <span class="s2">"../T002_compound_adme/data/EGFR_compounds_lipinski.csv"</span><span class="p">,</span>
+    <span class="n">HERE</span> <span class="o">/</span> <span class="s2">"../T002_compound_adme/data/A2A_compounds_lipinski.csv"</span><span class="p">,</span>
     <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Dataframe shape:"</span><span class="p">,</span> <span class="n">compound_df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -915,11 +907,11 @@ The history saving thread hit an unexpected error (OperationalError('database is
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Dataframe shape: (4635, 10)
+Dataframe shape: (3545, 10)
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -942,10 +934,10 @@ Dataframe shape: (4635, 10)
 <tr style="text-align: right;">
 <th></th>
 <th>molecule_chembl_id</th>
-<th>IC50</th>
+<th>Ki</th>
 <th>units</th>
 <th>smiles</th>
-<th>pIC50</th>
+<th>pKi</th>
 <th>molecular_weight</th>
 <th>n_hba</th>
 <th>n_hbd</th>
@@ -956,67 +948,67 @@ Dataframe shape: (4635, 10)
 <tbody>
 <tr>
 <th>0</th>
-<td>CHEMBL63786</td>
-<td>0.003</td>
+<td>CHEMBL2419149</td>
+<td>0.0042</td>
 <td>nM</td>
-<td>Brc1cccc(Nc2ncnc3cc4ccccc4cc23)c1</td>
-<td>11.522879</td>
-<td>349.021459</td>
-<td>3</td>
-<td>1</td>
-<td>5.2891</td>
+<td>N#Cc1sc(=S)n(-c2ccccc2)c1/N=C/c1ccc(Br)cc1</td>
+<td>11.376751</td>
+<td>398.949951</td>
+<td>5</td>
+<td>0</td>
+<td>5.65307</td>
 <td>True</td>
 </tr>
 <tr>
 <th>1</th>
-<td>CHEMBL35820</td>
-<td>0.006</td>
+<td>CHEMBL2419144</td>
+<td>0.0047</td>
 <td>nM</td>
-<td>CCOc1cc2ncnc(Nc3cccc(Br)c3)c2cc1OCC</td>
-<td>11.221849</td>
-<td>387.058239</td>
+<td>N#Cc1sc(=S)n(-c2ccccc2)c1/N=C/c1ccc(F)cc1</td>
+<td>11.327902</td>
+<td>339.030018</td>
 <td>5</td>
-<td>1</td>
-<td>4.9333</td>
+<td>0</td>
+<td>5.02967</td>
 <td>True</td>
 </tr>
 <tr>
 <th>2</th>
-<td>CHEMBL53711</td>
-<td>0.006</td>
+<td>CHEMBL1093479</td>
+<td>0.0082</td>
 <td>nM</td>
-<td>CN(C)c1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
-<td>11.221849</td>
-<td>343.043258</td>
-<td>5</td>
-<td>1</td>
-<td>3.5969</td>
+<td>S=c1sc2c(ncn3nc(-c4ccco4)nc23)n1-c1cccc(I)c1</td>
+<td>11.086186</td>
+<td>476.921500</td>
+<td>8</td>
+<td>0</td>
+<td>4.72379</td>
 <td>True</td>
 </tr>
 <tr>
 <th>3</th>
-<td>CHEMBL66031</td>
-<td>0.008</td>
+<td>CHEMBL2419139</td>
+<td>0.0100</td>
 <td>nM</td>
-<td>Brc1cccc(Nc2ncnc3cc4[nH]cnc4cc23)c1</td>
-<td>11.096910</td>
-<td>339.011957</td>
-<td>4</td>
-<td>2</td>
-<td>4.0122</td>
+<td>CCn1c(/N=C/c2ccc(Br)cc2)c(C#N)sc1=S</td>
+<td>11.000000</td>
+<td>350.949951</td>
+<td>5</td>
+<td>0</td>
+<td>4.68377</td>
 <td>True</td>
 </tr>
 <tr>
 <th>4</th>
-<td>CHEMBL53753</td>
-<td>0.008</td>
+<td>CHEMBL1092271</td>
+<td>0.0160</td>
 <td>nM</td>
-<td>CNc1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
-<td>11.096910</td>
-<td>329.027607</td>
-<td>5</td>
-<td>2</td>
-<td>3.5726</td>
+<td>C=CCn1c(=S)sc2c1ncn1nc(-c3ccco3)nc21</td>
+<td>10.795880</td>
+<td>315.024852</td>
+<td>8</td>
+<td>0</td>
+<td>3.31599</td>
 <td>True</td>
 </tr>
 </tbody>
@@ -1024,7 +1016,7 @@ Dataframe shape: (4635, 10)
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1040,20 +1032,20 @@ Dataframe shape: (4635, 10)
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[(&lt;rdkit.Chem.rdchem.Mol at 0x7fbe9b84fc40&gt;, 'CHEMBL63786'),
- (&lt;rdkit.Chem.rdchem.Mol at 0x7fbe9b84f880&gt;, 'CHEMBL35820'),
- (&lt;rdkit.Chem.rdchem.Mol at 0x7fbe9b84f4c0&gt;, 'CHEMBL53711'),
- (&lt;rdkit.Chem.rdchem.Mol at 0x7fbe9b84f940&gt;, 'CHEMBL66031'),
- (&lt;rdkit.Chem.rdchem.Mol at 0x7fbe9b84fb80&gt;, 'CHEMBL53753')]
+[(&lt;rdkit.Chem.rdchem.Mol at 0x7f3d039f7b80&gt;, 'CHEMBL2419149'),
+ (&lt;rdkit.Chem.rdchem.Mol at 0x7f3d039f7940&gt;, 'CHEMBL2419144'),
+ (&lt;rdkit.Chem.rdchem.Mol at 0x7f3d039f7e80&gt;, 'CHEMBL1093479'),
+ (&lt;rdkit.Chem.rdchem.Mol at 0x7f3d039f7be0&gt;, 'CHEMBL2419139'),
+ (&lt;rdkit.Chem.rdchem.Mol at 0x7f3d039f7dc0&gt;, 'CHEMBL1092271')]
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1073,7 +1065,7 @@ Dataframe shape: (4635, 10)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Number of compounds converted: 4635
+Number of compounds converted: 3545
 Fingerprint length per compound: 2048
 </pre></div></div>
 </div>
@@ -1082,7 +1074,7 @@ Fingerprint length per compound: 2048
 <h4 id="Tanimoto-similarity-and-distance-matrix">Tanimoto similarity and distance matrix<a class="headerlink" href="#Tanimoto-similarity-and-distance-matrix" title="Permalink to this headline">¶</a></h4>
 <p>Now that we generated fingerprints, we move on to the next step: The identification of potential cluster centroids. For this, we define functions to calculate the Tanimoto similarity and distance matrix.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1102,7 +1094,7 @@ Fingerprint length per compound: 2048
 </div>
 <p>See also <a class="reference external" href="https://sourceforge.net/p/rdkit/mailman/rdkit-discuss/thread/663770d4-b809-c599-e379-31f57380a1d0%40gmail.com/#msg36335970">[Rdkit-discuss] BulkTanimotoSimilarity</a>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1118,11 +1110,11 @@ Fingerprint length per compound: 2048
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Tanimoto similarity: 0.73, distance: 0.27
+Tanimoto similarity: 0.93, distance: 0.07
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1132,20 +1124,20 @@ Tanimoto similarity: 0.73, distance: 0.27
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-[0.26996197718631176,
- 0.26538461538461533,
- 0.40866873065015474,
- 0.09345794392523366,
- 0.31182795698924726]
+[0.06812652068126523,
+ 0.7106017191977078,
+ 0.7116212338593975,
+ 0.4234800838574424,
+ 0.4662576687116564]
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1168,7 +1160,7 @@ Tanimoto similarity: 0.73, distance: 0.27
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Elements in the triangular matrix (10739295) == tanimoto_distance_matrix(fingerprints) (10739295)
+Elements in the triangular matrix (6281740) == tanimoto_distance_matrix(fingerprints) (6281740)
 </pre></div></div>
 </div>
 </section>
@@ -1177,7 +1169,7 @@ Elements in the triangular matrix (10739295) == tanimoto_distance_matrix(fingerp
 <p>In this part, we cluster the molecules and look at the results.</p>
 <p>Define a clustering function.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1198,7 +1190,7 @@ Elements in the triangular matrix (10739295) == tanimoto_distance_matrix(fingerp
 </div>
 <p>Cluster the molecules based on their fingerprint similarity.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1225,15 +1217,15 @@ Elements in the triangular matrix (10739295) == tanimoto_distance_matrix(fingerp
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-total # clusters:  727
-# clusters with only 1 compound:  339
-# clusters with &gt;5 compounds:  164
-# clusters with &gt;25 compounds:  30
-# clusters with &gt;100 compounds:  4
+total # clusters:  456
+# clusters with only 1 compound:  206
+# clusters with &gt;5 compounds:  120
+# clusters with &gt;25 compounds:  32
+# clusters with &gt;100 compounds:  2
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1257,7 +1249,7 @@ total # clusters:  727
 <h4 id="How-to-pick-a-reasonable-cutoff?">How to pick a reasonable cutoff?<a class="headerlink" href="#How-to-pick-a-reasonable-cutoff?" title="Permalink to this headline">¶</a></h4>
 <p>Since the clustering result depends on the threshold chosen by the user, we will have a closer look on the choice of a cutoff.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1348,7 +1340,7 @@ total # clusters:  727
 </div></blockquote>
 <p>Looking at the plots above, we decided to choose a distance threshold of <code class="docutils literal notranslate"><span class="pre">0.2</span></code>. There are not many singletons and the cluster sizes don’t have an extreme but smooth distribution.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1386,10 +1378,10 @@ total # clusters:  727
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Number of clusters: 1128 from 4635 molecules at distance cut-off 0.20
-Number of molecules in largest cluster: 145
+Number of clusters: 770 from 3545 molecules at distance cut-off 0.20
+Number of molecules in largest cluster: 118
 Similarity between two random points in same cluster: 0.82
-Similarity between two random points in different cluster: 0.22
+Similarity between two random points in different cluster: 0.78
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -1407,7 +1399,7 @@ Similarity between two random points in different cluster: 0.22
 <h4 id="10-examples-from-largest-cluster">10 examples from largest cluster<a class="headerlink" href="#10-examples-from-largest-cluster" title="Permalink to this headline">¶</a></h4>
 <p>Now, let’s have a closer look at the first 10 molecular structures of the first/largest clusters.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1430,7 +1422,7 @@ Ten molecules from largest cluster:
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1438,7 +1430,7 @@ Ten molecules from largest cluster:
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1458,7 +1450,7 @@ Ten molecules from largest cluster:
 <section id="10-examples-from-second-largest-cluster">
 <h4 id="10-examples-from-second-largest-cluster">10 examples from second largest cluster<a class="headerlink" href="#10-examples-from-second-largest-cluster" title="Permalink to this headline">¶</a></h4>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1481,7 +1473,7 @@ Ten molecules from second largest cluster:
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1495,7 +1487,7 @@ Ten molecules from second largest cluster:
 <h4 id="Examples-from-first-10-clusters">Examples from first 10 clusters<a class="headerlink" href="#Examples-from-first-10-clusters" title="Permalink to this headline">¶</a></h4>
 <p>For comparison, we have a look at the cluster centers of the first 10 clusters.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1518,7 +1510,7 @@ Ten molecules from first 10 clusters:
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1527,7 +1519,7 @@ Ten molecules from first 10 clusters:
 </div>
 <p>Save cluster centers from first 3 clusters as SVG file.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1554,7 +1546,7 @@ Ten molecules from first 10 clusters:
 <h4 id="Intra-cluster-Tanimoto-similarities">Intra-cluster Tanimoto similarities<a class="headerlink" href="#Intra-cluster-Tanimoto-similarities" title="Permalink to this headline">¶</a></h4>
 <p>We can also have a look at the intra-cluster Tanimoto similarities.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1570,7 +1562,7 @@ Ten molecules from first 10 clusters:
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1585,7 +1577,7 @@ Ten molecules from first 10 clusters:
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1625,7 +1617,7 @@ Ten molecules from first 10 clusters:
 <p>As described there: the idea behind this approach is to ensure diversity (representatives of each cluster) while getting some SAR (structure-activity relationship) from the results of the confirmatory assay (groups of quite similar molecules from larger clusters retained).</p>
 <p>Get cluster centers.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1642,12 +1634,12 @@ Ten molecules from first 10 clusters:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Number of cluster centers: 1128
+Number of cluster centers: 770
 </pre></div></div>
 </div>
 <p>Sort clusters by size and molecules in each cluster by similarity.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1677,7 +1669,7 @@ Number of cluster centers: 1128
 </div>
 <p>Pick a maximum of 1000 compounds.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1711,7 +1703,7 @@ Number of cluster centers: 1128
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-# Selected molecules: 1128
+# Selected molecules: 1000
 </pre></div></div>
 </div>
 <p>This set of diverse molecules could now be used for experimental testing.</p>
@@ -1720,7 +1712,7 @@ Number of cluster centers: 1128
 <h3 id="Bonus:-analysis-of-run-times">Bonus: analysis of run times<a class="headerlink" href="#Bonus:-analysis-of-run-times" title="Permalink to this headline">¶</a></h3>
 <p>At the end of the talktorial, we can play with the size of the dataset and see how the Butina clustering run time changes.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1731,7 +1723,7 @@ Number of cluster centers: 1128
 </div>
 <p>Note that you can try out larger datasets, but data sizes larger than 10000 data points already start to consume quite some memory and time (that’s why we stopped there).</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1746,7 +1738,7 @@ Number of cluster centers: 1128
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1756,12 +1748,12 @@ Number of cluster centers: 1128
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-4635
+3545
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1769,7 +1761,7 @@ Number of cluster centers: 1128
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">sample_sizes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">4000</span><span class="p">]</span>
+<span></span><span class="n">sample_sizes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">2000</span><span class="p">]</span>
 <span class="n">runtimes</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="c1"># Take random samples with replacement</span>
 <span class="k">for</span> <span class="n">size</span> <span class="ow">in</span> <span class="n">sample_sizes</span><span class="p">:</span>
@@ -1784,11 +1776,10 @@ Number of cluster centers: 1128
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Dataset size 100, time 0.08 seconds
-Dataset size 500, time 0.41 seconds
-Dataset size 1000, time 1.00 seconds
-Dataset size 2000, time 2.87 seconds
-Dataset size 4000, time 6.23 seconds
+Dataset size 100, time 0.04 seconds
+Dataset size 500, time 0.19 seconds
+Dataset size 1000, time 0.41 seconds
+Dataset size 2000, time 0.99 seconds
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -1825,6 +1816,15 @@ Dataset size 4000, time 6.23 seconds
 <li><p>Which algorithms can you use to cluster a set of molecules and what is the general idea behind the algorithm?</p></li>
 <li><p>Do you know other clustering algorithms?</p></li>
 </ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
 <script type="application/vnd.jupyter.widget-state+json">
 {"state": {}, "version_major": 2, "version_minor": 0}
 </script></section>

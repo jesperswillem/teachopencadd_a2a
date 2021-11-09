@@ -909,7 +909,7 @@ fingerprint</a> can be found in the <code class="docutils literal notranslate"><
 <h3 id="Import-and-draw-molecules">Import and draw molecules<a class="headerlink" href="#Import-and-draw-molecules" title="Permalink to this headline">¶</a></h3>
 <p>First, we define and draw eight example molecules, which we will encode and compare later on. The molecules in SMILES format are converted to <code class="docutils literal notranslate"><span class="pre">rdkit</span></code> molecule objects and visualized with the <code class="docutils literal notranslate"><span class="pre">Draw</span></code> module in <code class="docutils literal notranslate"><span class="pre">rdkit</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -929,7 +929,7 @@ fingerprint</a> can be found in the <code class="docutils literal notranslate"><
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -940,7 +940,7 @@ fingerprint</a> can be found in the <code class="docutils literal notranslate"><
 </div>
 <p>Let’s define some molecule examples.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -972,7 +972,7 @@ fingerprint</a> can be found in the <code class="docutils literal notranslate"><
 </div>
 <p>Generate a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> for these molecules and add their ROMol objects.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -984,7 +984,7 @@ fingerprint</a> can be found in the <code class="docutils literal notranslate"><
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1030,7 +1030,7 @@ fingerprint</a> can be found in the <code class="docutils literal notranslate"><
 </div>
 <p>Visualize all molecules.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1044,7 +1044,7 @@ fingerprint</a> can be found in the <code class="docutils literal notranslate"><
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1059,7 +1059,7 @@ fingerprint</a> can be found in the <code class="docutils literal notranslate"><
 <h4 id="1D-molecular-descriptors:-Molecular-weight">1D molecular descriptors: Molecular weight<a class="headerlink" href="#1D-molecular-descriptors:-Molecular-weight" title="Permalink to this headline">¶</a></h4>
 <p>We calculate the molecular weight of our example structures.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1073,7 +1073,7 @@ fingerprint</a> can be found in the <code class="docutils literal notranslate"><
 </div>
 <p>We draw our molecular structures with their similar molecular weight for visual comparison: Is the molecular weight a feasible descriptor for molecule similarity?</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1084,7 +1084,7 @@ fingerprint</a> can be found in the <code class="docutils literal notranslate"><
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[65]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1166,7 +1166,7 @@ fingerprint</a> can be found in the <code class="docutils literal notranslate"><
 </div>
 <p>We draw the molecules with their molecular weight.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1183,7 +1183,7 @@ fingerprint</a> can be found in the <code class="docutils literal notranslate"><
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[66]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1197,7 +1197,7 @@ fingerprint</a> can be found in the <code class="docutils literal notranslate"><
 <h4 id="2D-molecular-descriptors:-MACCS-fingerprint">2D molecular descriptors: MACCS fingerprint<a class="headerlink" href="#2D-molecular-descriptors:-MACCS-fingerprint" title="Permalink to this headline">¶</a></h4>
 <p><strong>Example molecule</strong>: Let’s use an example molecule from our <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1207,7 +1207,7 @@ fingerprint</a> can be found in the <code class="docutils literal notranslate"><
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[67]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1216,7 +1216,7 @@ fingerprint</a> can be found in the <code class="docutils literal notranslate"><
 </div>
 <p>MACCS fingerprints can be easily generated using <code class="docutils literal notranslate"><span class="pre">rdkit</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[68]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1226,7 +1226,7 @@ fingerprint</a> can be found in the <code class="docutils literal notranslate"><
 </div>
 <p>As explicit bitvectors are not human-readable, we will further transform them to bitstrings.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[69]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1236,7 +1236,7 @@ fingerprint</a> can be found in the <code class="docutils literal notranslate"><
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[69]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1246,7 +1246,7 @@ fingerprint</a> can be found in the <code class="docutils literal notranslate"><
 </div>
 <p><strong>Applied to all molecules</strong>: Add MACCS fingerprints for all molecules to the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[70]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1261,7 +1261,7 @@ fingerprint</a> can be found in the <code class="docutils literal notranslate"><
 <p><strong>Example molecule</strong>: Let’s use again with our example molecule.</p>
 <p>Generate the Morgan fingerprint <em>as int vector</em>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[71]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1271,16 +1271,16 @@ fingerprint</a> can be found in the <code class="docutils literal notranslate"><
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[71]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;rdkit.DataStructs.cDataStructs.UIntSparseIntVect at 0x7fea247d0e40&gt;
+&lt;rdkit.DataStructs.cDataStructs.UIntSparseIntVect at 0x7f8edab2a6d0&gt;
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[72]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1300,7 +1300,7 @@ Print non-zero elements:
 </div>
 <p>Generate the Morgan fingerprint <em>as bit vector</em>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[73]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1312,16 +1312,16 @@ Print non-zero elements:
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[73]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;rdkit.DataStructs.cDataStructs.ExplicitBitVect at 0x7fea267fc5f0&gt;
+&lt;rdkit.DataStructs.cDataStructs.ExplicitBitVect at 0x7f8edab2aeb0&gt;
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[74]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1341,7 +1341,7 @@ Print top 400 fingerprint bits:
 </div>
 <p><strong>Applied to all molecules</strong>: Add Morgan fingerprints (as bit vector) for all molecules to the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[75]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1356,7 +1356,7 @@ Print top 400 fingerprint bits:
 <p>In the following, we will apply two similarity measures, i.e. <strong>Tanimoto</strong> and <strong>Dice</strong>, to our two fingerprint types, i.e. <strong>MACCS</strong> and <strong>Morgan</strong> fingerprints.</p>
 <p><strong>Example molecule pair</strong>: Compare two MACCS fingerprints with the Tanimoto similarity.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[76]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1372,7 +1372,7 @@ Print top 400 fingerprint bits:
 </div>
 <p>Calculate the Tanimoto coefficient <em>between two different molecules</em>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[77]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1382,7 +1382,7 @@ Print top 400 fingerprint bits:
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[77]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1392,7 +1392,7 @@ Print top 400 fingerprint bits:
 </div>
 <p>Calculate Tanimoto coefficient <em>between the same molecule</em>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[78]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1402,7 +1402,7 @@ Print top 400 fingerprint bits:
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[78]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1415,7 +1415,7 @@ Print top 400 fingerprint bits:
 <h4 id="MACCS-fingerprints:-Tanimoto-similarity-and-Dice-similarity">MACCS fingerprints: Tanimoto similarity and Dice similarity<a class="headerlink" href="#MACCS-fingerprints:-Tanimoto-similarity-and-Dice-similarity" title="Permalink to this headline">¶</a></h4>
 <p>Add the Tanimoto and Dice similarities between MACCS fingerprints to the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[79]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1430,7 +1430,7 @@ Print top 400 fingerprint bits:
 </div>
 <p>Sort the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> by the Tanimoto similarity of the MACCS fingerprints (show only name and similarity columns!).</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[80]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1441,7 +1441,7 @@ Print top 400 fingerprint bits:
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[80]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1524,7 +1524,7 @@ Print top 400 fingerprint bits:
 <p><strong>Note</strong>: Tanimoto and Dice similarity measures by definition result in the same ranking of molecules, with higher values for the Dice similarity (see Tanimoto and Dice equations in the theory section of this talktorial).</p>
 <p>Draw molecules ranked by the Tanimoto similarity of MACCS fingerprints.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[81]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1559,7 +1559,7 @@ Print top 400 fingerprint bits:
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[82]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1568,7 +1568,7 @@ Print top 400 fingerprint bits:
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[82]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1581,7 +1581,7 @@ Print top 400 fingerprint bits:
 <h4 id="Morgan-fingerprints:-Tanimoto-similarity-and-Dice-similarity">Morgan fingerprints: Tanimoto similarity and Dice similarity<a class="headerlink" href="#Morgan-fingerprints:-Tanimoto-similarity-and-Dice-similarity" title="Permalink to this headline">¶</a></h4>
 <p>Add the Tanimoto and Dice similarities between the Morgan fingerprints to the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[83]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1596,7 +1596,7 @@ Print top 400 fingerprint bits:
 </div>
 <p>Sort the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> by the Tanimoto similarity of the Morgan fingerprints.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[84]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1607,7 +1607,7 @@ Print top 400 fingerprint bits:
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[84]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1707,7 +1707,7 @@ Print top 400 fingerprint bits:
 </div>
 <p>Draw molecules ranked by the Tanimoto similarities of Morgan fingerprints.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[85]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1716,7 +1716,7 @@ Print top 400 fingerprint bits:
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[85]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1725,7 +1725,7 @@ Print top 400 fingerprint bits:
 </div>
 <p>We compare the Tanimoto similarities based on MACCS and Morgan fingerprints. Therefore, we plot the Tanimoto similarities based on Morgen fingerprints vs. the Tanimoto simlarities based on MACCS fingerprints.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[86]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1758,7 +1758,7 @@ Print top 400 fingerprint bits:
 <p>We import molecules from a <em>csv</em> file containing the filtered adenosine A2A-tested molecules from the ChEMBL database as provided by <strong>Talktorial T002</strong>. Given one query molecule (here ZM241385), we screen that data set for similar molecules.</p>
 <p><strong>Dataset</strong>: Import data from the <em>csv</em> file containing molecules in the SMILES format.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[88]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1780,7 +1780,7 @@ Number of molecules in dataset: 3545
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[88]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1844,7 +1844,7 @@ Number of molecules in dataset: 3545
 </div>
 <p><strong>Query</strong>: For the query molecule ZM241385, generate the <code class="docutils literal notranslate"><span class="pre">ROMol</span></code> object from the query molecule’s SMILES.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[89]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1854,7 +1854,7 @@ Number of molecules in dataset: 3545
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[89]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -1863,7 +1863,7 @@ Number of molecules in dataset: 3545
 </div>
 <p>Generate MACCS and Morgan fingerprints for the query molecule.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[90]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1874,7 +1874,7 @@ Number of molecules in dataset: 3545
 </div>
 <p>Generate MACCS and Morgan fingerprints for all molecules in our dataset.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[91]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1886,7 +1886,7 @@ Number of molecules in dataset: 3545
 </div>
 <p>Calculate the Tanimoto similarity between the query molecule (ZM241385) and all molecules our dataset (using MACCS and Morgan fingerprints).</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[92]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1901,7 +1901,7 @@ Number of molecules in dataset: 3545
 </div>
 <p>Calculate Dice similarity for query molecule (ZM241385) and all molecules in file (MACCS, Morgan).</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[93]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1913,7 +1913,7 @@ Number of molecules in dataset: 3545
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[94]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1925,7 +1925,7 @@ Number of molecules in dataset: 3545
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[94]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2000,7 +2000,7 @@ Number of molecules in dataset: 3545
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[95]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2010,7 +2010,7 @@ Number of molecules in dataset: 3545
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[95]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2087,7 +2087,7 @@ Number of molecules in dataset: 3545
 <p>We can have a look at the distributions by plotting histograms.</p>
 <p>First, we can plot distribution of Tanimoto similarity of MACCS fingerprints.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[96]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2111,7 +2111,7 @@ Number of molecules in dataset: 3545
 </div>
 <p>Second, we can compare similarities here. This time, let’s directly compare Tanimoto and Dice similarities for the two fingerprints.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[97]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2145,7 +2145,7 @@ Number of molecules in dataset: 3545
 <p>We visually inspect the structure of ZM241385 in comparison to the most similar molecules in our ranking, including the information about their bioactivity (pIC50 derived from the ChEMBL database in <strong>Talktorial T001</strong>).</p>
 <p>Here, we sort the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> by the Tanimoto similarity based on Morgan fingerprints.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[98]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2154,7 +2154,7 @@ Number of molecules in dataset: 3545
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[98]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2226,7 +2226,7 @@ Number of molecules in dataset: 3545
 </div>
 <p>Show the query and its most similar molecules alongside the molecules’ bioactivities.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[100]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2247,7 +2247,7 @@ Number of molecules in dataset: 3545
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[100]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -2268,7 +2268,7 @@ Number of molecules in dataset: 3545
 <p>We compare the Tanimoto similarity for MACCS and Morgan fingerprints.</p>
 <p>In order to decide whether we treat a molecule as active or inactive, we apply the commonly used pIC50 cutoff value of 6.3. Although there are several suggestions ranging from an pIC50 cutoff values of 5 to 7 in the literature or even to define an exclusion range, we think this cutoff is reasonable. The same cutoff will be used for machine learning in <strong>Talktorial T010</strong>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[101]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2277,7 +2277,7 @@ Number of molecules in dataset: 3545
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[101]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2348,7 +2348,7 @@ Number of molecules in dataset: 3545
 </div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[109]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2415,7 +2415,7 @@ Number of molecules in dataset: 3545
 </div>
 <p>Set the pKi cutoff used to discriminate active and inactive molecules…</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[110]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2425,7 +2425,7 @@ Number of molecules in dataset: 3545
 </div>
 <p>…and get the enrichment for MACCS and Morgan fingerprints (using the Tanimoto similarity).</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[111]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2439,7 +2439,7 @@ Number of molecules in dataset: 3545
 </div>
 <p>Show example enrichment data.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[112]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2449,7 +2449,7 @@ Number of molecules in dataset: 3545
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[112]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -2507,7 +2507,7 @@ Number of molecules in dataset: 3545
 </div>
 <p>Plot the enrichment data next to the optimal and random enrichment curve!</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[114]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2574,7 +2574,7 @@ Number of molecules in dataset: 3545
 <h4 id="Calculate-enrichment-factors">Calculate enrichment factors<a class="headerlink" href="#Calculate-enrichment-factors" title="Permalink to this headline">¶</a></h4>
 <p>The (experimental) <strong>enrichment factor (EF)</strong> is used to access a methods success by a single number rather than a plot. The idea is to determine the percentage of active molecules in the top x% (e.g. 5%) of ranked molecules, as defined by the following helper function.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[115]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2609,7 +2609,7 @@ Number of molecules in dataset: 3545
 </div>
 <p>This helper function calculates the random enrichment of active molecules in the top x% of ranked molecules (<strong>random enrichment factor</strong>).</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[116]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2635,7 +2635,7 @@ Number of molecules in dataset: 3545
 </div>
 <p>And this helper function calculates the optimal enrichment of active molecules in the top x% of ranked molecules (<strong>optimal enrichment factor</strong>). The random and optimal enrichment factors are needed to judge how good the experimental enrichment factor for a method is.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[121]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2669,7 +2669,7 @@ Number of molecules in dataset: 3545
 </div>
 <p>We are ready to calculate the experimental enrichment factor (EF) for 5% of ranked dataset…</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[122]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2678,7 +2678,7 @@ Number of molecules in dataset: 3545
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[123]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2702,7 +2702,7 @@ Experimental EF for 5% of ranked dataset (tanimoto_morgan): 7.2%
 </div>
 <p>… and we can compare it to the random and optimal enrichment factor.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[124]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -2711,7 +2711,7 @@ Experimental EF for 5% of ranked dataset (tanimoto_morgan): 7.2%
     <span class="sa">f</span><span class="s2">"Random EF for </span><span class="si">{</span><span class="n">ranked_dataset_percentage_cutoff</span><span class="si">}</span><span class="s2">% of ranked dataset: </span><span class="si">{</span><span class="n">enrichment_factor_random</span><span class="si">}</span><span class="s2">%"</span>
 <span class="p">)</span>
 <span class="n">enrichment_factor_optimal</span> <span class="o">=</span> <span class="n">calculate_enrichment_factor_optimal</span><span class="p">(</span>
-    <span class="n">molecule_dataset</span><span class="p">,</span> <span class="n">ranked_dataset_percentage_cutoff</span><span class="p">,</span> <span class="n">pic50_cutoff</span>
+    <span class="n">molecule_dataset</span><span class="p">,</span> <span class="n">ranked_dataset_percentage_cutoff</span><span class="p">,</span> <span class="n">pKi_cutoff</span>
 <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span>
     <span class="sa">f</span><span class="s2">"Optimal EF for </span><span class="si">{</span><span class="n">ranked_dataset_percentage_cutoff</span><span class="si">}</span><span class="s2">% of ranked dataset: </span><span class="si">{</span><span class="n">enrichment_factor_optimal</span><span class="si">}</span><span class="s2">%"</span>

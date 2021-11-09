@@ -418,6 +418,8 @@
         </li></ul>
             </nav>
         </li>
+        <li class="md-nav__item"><a href="#Regresion-models" class="md-nav__link">Regresion models</a>
+        </li>
         <li class="md-nav__item"><a href="#Discussion" class="md-nav__link">Discussion</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#Where-can-we-go-from-here?" class="md-nav__link">Where can we go from here?</a>
@@ -882,7 +884,7 @@ fingerprint. The two most important parameters of these fingerprints are the rad
 <section id="Practical">
 <h2 id="Practical">Practical<a class="headerlink" href="#Practical" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -894,6 +896,7 @@ fingerprint. The two most important parameters of these fingerprints are the rad
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">svm</span><span class="p">,</span> <span class="n">metrics</span><span class="p">,</span> <span class="n">clone</span>
 <span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestRegressor</span>
 <span class="kn">from</span> <span class="nn">sklearn.neural_network</span> <span class="kn">import</span> <span class="n">MLPClassifier</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">KFold</span><span class="p">,</span> <span class="n">train_test_split</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">auc</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">recall_score</span>
@@ -939,7 +942,7 @@ fingerprint. The two most important parameters of these fingerprints are the rad
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Read data from previous talktorials</span>
 <span class="n">chembl_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
-    <span class="n">HERE</span> <span class="o">/</span> <span class="s2">"../T002_compound_adme/data/EGFR_compounds_lipinski.csv"</span><span class="p">,</span>
+    <span class="n">HERE</span> <span class="o">/</span> <span class="s2">"../T002_compound_adme/data/A2A_compounds_lipinski.csv"</span><span class="p">,</span>
     <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
 <span class="p">)</span>
 
@@ -955,7 +958,7 @@ fingerprint. The two most important parameters of these fingerprints are the rad
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Shape of dataframe :  (4635, 10)
+Shape of dataframe :  (3545, 10)
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -982,10 +985,10 @@ Shape of dataframe :  (4635, 10)
 <tr style="text-align: right;">
 <th></th>
 <th>molecule_chembl_id</th>
-<th>IC50</th>
+<th>Ki</th>
 <th>units</th>
 <th>smiles</th>
-<th>pIC50</th>
+<th>pKi</th>
 <th>molecular_weight</th>
 <th>n_hba</th>
 <th>n_hbd</th>
@@ -996,67 +999,67 @@ Shape of dataframe :  (4635, 10)
 <tbody>
 <tr>
 <th>0</th>
-<td>CHEMBL63786</td>
-<td>0.003</td>
+<td>CHEMBL2419149</td>
+<td>0.0042</td>
 <td>nM</td>
-<td>Brc1cccc(Nc2ncnc3cc4ccccc4cc23)c1</td>
-<td>11.522879</td>
-<td>349.021459</td>
-<td>3</td>
-<td>1</td>
-<td>5.2891</td>
+<td>N#Cc1sc(=S)n(-c2ccccc2)c1/N=C/c1ccc(Br)cc1</td>
+<td>11.376751</td>
+<td>398.949951</td>
+<td>5</td>
+<td>0</td>
+<td>5.65307</td>
 <td>True</td>
 </tr>
 <tr>
 <th>1</th>
-<td>CHEMBL35820</td>
-<td>0.006</td>
+<td>CHEMBL2419144</td>
+<td>0.0047</td>
 <td>nM</td>
-<td>CCOc1cc2ncnc(Nc3cccc(Br)c3)c2cc1OCC</td>
-<td>11.221849</td>
-<td>387.058239</td>
+<td>N#Cc1sc(=S)n(-c2ccccc2)c1/N=C/c1ccc(F)cc1</td>
+<td>11.327902</td>
+<td>339.030018</td>
 <td>5</td>
-<td>1</td>
-<td>4.9333</td>
+<td>0</td>
+<td>5.02967</td>
 <td>True</td>
 </tr>
 <tr>
 <th>2</th>
-<td>CHEMBL53711</td>
-<td>0.006</td>
+<td>CHEMBL1093479</td>
+<td>0.0082</td>
 <td>nM</td>
-<td>CN(C)c1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
-<td>11.221849</td>
-<td>343.043258</td>
-<td>5</td>
-<td>1</td>
-<td>3.5969</td>
+<td>S=c1sc2c(ncn3nc(-c4ccco4)nc23)n1-c1cccc(I)c1</td>
+<td>11.086186</td>
+<td>476.921500</td>
+<td>8</td>
+<td>0</td>
+<td>4.72379</td>
 <td>True</td>
 </tr>
 <tr>
 <th>3</th>
-<td>CHEMBL66031</td>
-<td>0.008</td>
+<td>CHEMBL2419139</td>
+<td>0.0100</td>
 <td>nM</td>
-<td>Brc1cccc(Nc2ncnc3cc4[nH]cnc4cc23)c1</td>
-<td>11.096910</td>
-<td>339.011957</td>
-<td>4</td>
-<td>2</td>
-<td>4.0122</td>
+<td>CCn1c(/N=C/c2ccc(Br)cc2)c(C#N)sc1=S</td>
+<td>11.000000</td>
+<td>350.949951</td>
+<td>5</td>
+<td>0</td>
+<td>4.68377</td>
 <td>True</td>
 </tr>
 <tr>
 <th>4</th>
-<td>CHEMBL53753</td>
-<td>0.008</td>
+<td>CHEMBL1092271</td>
+<td>0.0160</td>
 <td>nM</td>
-<td>CNc1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
-<td>11.096910</td>
-<td>329.027607</td>
-<td>5</td>
-<td>2</td>
-<td>3.5726</td>
+<td>C=CCn1c(=S)sc2c1ncn1nc(-c3ccco3)nc21</td>
+<td>10.795880</td>
+<td>315.024852</td>
+<td>8</td>
+<td>0</td>
+<td>3.31599</td>
 <td>True</td>
 </tr>
 </tbody>
@@ -1064,19 +1067,19 @@ Shape of dataframe :  (4635, 10)
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Keep only the columns we want</span>
-<span class="n">chembl_df</span> <span class="o">=</span> <span class="n">chembl_df</span><span class="p">[[</span><span class="s2">"molecule_chembl_id"</span><span class="p">,</span> <span class="s2">"smiles"</span><span class="p">,</span> <span class="s2">"pIC50"</span><span class="p">]]</span>
+<span class="n">chembl_df</span> <span class="o">=</span> <span class="n">chembl_df</span><span class="p">[[</span><span class="s2">"molecule_chembl_id"</span><span class="p">,</span> <span class="s2">"smiles"</span><span class="p">,</span> <span class="s2">"pKi"</span><span class="p">]]</span>
 <span class="n">chembl_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 <span class="c1"># NBVAL_CHECK_OUTPUT</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1100,39 +1103,39 @@ Shape of dataframe :  (4635, 10)
 <th></th>
 <th>molecule_chembl_id</th>
 <th>smiles</th>
-<th>pIC50</th>
+<th>pKi</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <th>0</th>
-<td>CHEMBL63786</td>
-<td>Brc1cccc(Nc2ncnc3cc4ccccc4cc23)c1</td>
-<td>11.522879</td>
+<td>CHEMBL2419149</td>
+<td>N#Cc1sc(=S)n(-c2ccccc2)c1/N=C/c1ccc(Br)cc1</td>
+<td>11.376751</td>
 </tr>
 <tr>
 <th>1</th>
-<td>CHEMBL35820</td>
-<td>CCOc1cc2ncnc(Nc3cccc(Br)c3)c2cc1OCC</td>
-<td>11.221849</td>
+<td>CHEMBL2419144</td>
+<td>N#Cc1sc(=S)n(-c2ccccc2)c1/N=C/c1ccc(F)cc1</td>
+<td>11.327902</td>
 </tr>
 <tr>
 <th>2</th>
-<td>CHEMBL53711</td>
-<td>CN(C)c1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
-<td>11.221849</td>
+<td>CHEMBL1093479</td>
+<td>S=c1sc2c(ncn3nc(-c4ccco4)nc23)n1-c1cccc(I)c1</td>
+<td>11.086186</td>
 </tr>
 <tr>
 <th>3</th>
-<td>CHEMBL66031</td>
-<td>Brc1cccc(Nc2ncnc3cc4[nH]cnc4cc23)c1</td>
-<td>11.096910</td>
+<td>CHEMBL2419139</td>
+<td>CCn1c(/N=C/c2ccc(Br)cc2)c(C#N)sc1=S</td>
+<td>11.000000</td>
 </tr>
 <tr>
 <th>4</th>
-<td>CHEMBL53753</td>
-<td>CNc1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
-<td>11.096910</td>
+<td>CHEMBL1092271</td>
+<td>C=CCn1c(=S)sc2c1ncn1nc(-c3ccco3)nc21</td>
+<td>10.795880</td>
 </tr>
 </tbody>
 </table>
@@ -1151,15 +1154,15 @@ Shape of dataframe :  (4635, 10)
 <li><p>Note that there are several other suggestions for an activity cut-off ranging from an pIC50 value of 5 to 7 in the literature or even to define an exclusion range when not to take data points.</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="c1"># Add column for activity</span>
 <span class="n">chembl_df</span><span class="p">[</span><span class="s2">"active"</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">chembl_df</span><span class="p">))</span>
 
-<span class="c1"># Mark every molecule as active with an pIC50 of &gt;= 6.3, 0 otherwise</span>
-<span class="n">chembl_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">chembl_df</span><span class="p">[</span><span class="n">chembl_df</span><span class="o">.</span><span class="n">pIC50</span> <span class="o">&gt;=</span> <span class="mf">6.3</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="s2">"active"</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="c1"># Mark every molecule as active with an pKi of &gt;= 6.3, 0 otherwise</span>
+<span class="n">chembl_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">chembl_df</span><span class="p">[</span><span class="n">chembl_df</span><span class="o">.</span><span class="n">pKi</span> <span class="o">&gt;=</span> <span class="mf">6.3</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="s2">"active"</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
 
 <span class="c1"># NBVAL_CHECK_OUTPUT</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"Number of active compounds:"</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">chembl_df</span><span class="o">.</span><span class="n">active</span><span class="o">.</span><span class="n">sum</span><span class="p">()))</span>
@@ -1172,12 +1175,12 @@ Shape of dataframe :  (4635, 10)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Number of active compounds: 2631
-Number of inactive compounds: 2004
+Number of active compounds: 2264
+Number of inactive compounds: 1281
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1187,7 +1190,7 @@ Number of inactive compounds: 2004
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1211,44 +1214,44 @@ Number of inactive compounds: 2004
 <th></th>
 <th>molecule_chembl_id</th>
 <th>smiles</th>
-<th>pIC50</th>
+<th>pKi</th>
 <th>active</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <th>0</th>
-<td>CHEMBL63786</td>
-<td>Brc1cccc(Nc2ncnc3cc4ccccc4cc23)c1</td>
-<td>11.522879</td>
+<td>CHEMBL2419149</td>
+<td>N#Cc1sc(=S)n(-c2ccccc2)c1/N=C/c1ccc(Br)cc1</td>
+<td>11.376751</td>
 <td>1.0</td>
 </tr>
 <tr>
 <th>1</th>
-<td>CHEMBL35820</td>
-<td>CCOc1cc2ncnc(Nc3cccc(Br)c3)c2cc1OCC</td>
-<td>11.221849</td>
+<td>CHEMBL2419144</td>
+<td>N#Cc1sc(=S)n(-c2ccccc2)c1/N=C/c1ccc(F)cc1</td>
+<td>11.327902</td>
 <td>1.0</td>
 </tr>
 <tr>
 <th>2</th>
-<td>CHEMBL53711</td>
-<td>CN(C)c1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
-<td>11.221849</td>
+<td>CHEMBL1093479</td>
+<td>S=c1sc2c(ncn3nc(-c4ccco4)nc23)n1-c1cccc(I)c1</td>
+<td>11.086186</td>
 <td>1.0</td>
 </tr>
 <tr>
 <th>3</th>
-<td>CHEMBL66031</td>
-<td>Brc1cccc(Nc2ncnc3cc4[nH]cnc4cc23)c1</td>
-<td>11.096910</td>
+<td>CHEMBL2419139</td>
+<td>CCn1c(/N=C/c2ccc(Br)cc2)c(C#N)sc1=S</td>
+<td>11.000000</td>
 <td>1.0</td>
 </tr>
 <tr>
 <th>4</th>
-<td>CHEMBL53753</td>
-<td>CNc1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
-<td>11.096910</td>
+<td>CHEMBL1092271</td>
+<td>C=CCn1c(=S)sc2c1ncn1nc(-c3ccco3)nc21</td>
+<td>10.795880</td>
 <td>1.0</td>
 </tr>
 </tbody>
@@ -1264,7 +1267,7 @@ Number of inactive compounds: 2004
 <li><p>morgan2 and morgan3</p></li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1307,7 +1310,7 @@ Number of inactive compounds: 2004
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1316,7 +1319,7 @@ Number of inactive compounds: 2004
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1328,7 +1331,7 @@ Number of inactive compounds: 2004
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1352,7 +1355,7 @@ Number of inactive compounds: 2004
 <th></th>
 <th>molecule_chembl_id</th>
 <th>smiles</th>
-<th>pIC50</th>
+<th>pKi</th>
 <th>active</th>
 <th>fp</th>
 </tr>
@@ -1360,25 +1363,25 @@ Number of inactive compounds: 2004
 <tbody>
 <tr>
 <th>0</th>
-<td>CHEMBL63786</td>
-<td>Brc1cccc(Nc2ncnc3cc4ccccc4cc23)c1</td>
-<td>11.522879</td>
+<td>CHEMBL2419149</td>
+<td>N#Cc1sc(=S)n(-c2ccccc2)c1/N=C/c1ccc(Br)cc1</td>
+<td>11.376751</td>
 <td>1.0</td>
 <td>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</td>
 </tr>
 <tr>
 <th>1</th>
-<td>CHEMBL35820</td>
-<td>CCOc1cc2ncnc(Nc3cccc(Br)c3)c2cc1OCC</td>
-<td>11.221849</td>
+<td>CHEMBL2419144</td>
+<td>N#Cc1sc(=S)n(-c2ccccc2)c1/N=C/c1ccc(F)cc1</td>
+<td>11.327902</td>
 <td>1.0</td>
 <td>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</td>
 </tr>
 <tr>
 <th>2</th>
-<td>CHEMBL53711</td>
-<td>CN(C)c1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
-<td>11.221849</td>
+<td>CHEMBL1093479</td>
+<td>S=c1sc2c(ncn3nc(-c4ccco4)nc23)n1-c1cccc(I)c1</td>
+<td>11.086186</td>
 <td>1.0</td>
 <td>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</td>
 </tr>
@@ -1404,7 +1407,7 @@ Number of inactive compounds: 2004
 <h4 id="Helper-functions">Helper functions<a class="headerlink" href="#Helper-functions" title="Permalink to this headline">¶</a></h4>
 <p>Helper function to plot customized ROC curves. Code inspired by <a class="reference external" href="https://stackoverflow.com/questions/42894871/how-to-plot-multiple-roc-curves-in-one-plot-with-legend-and-auc-scores-in-python">stackoverflow</a>.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1461,7 +1464,7 @@ Number of inactive compounds: 2004
 </div>
 <p>Helper function to calculate model performance.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1511,7 +1514,7 @@ Number of inactive compounds: 2004
 </div>
 <p>Helper function to fit a machine learning model on a random train-test split of the data and return the performance measures.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1551,7 +1554,7 @@ Number of inactive compounds: 2004
 </div>
 <p><strong>Preprocessing</strong>: Split the data (will be reused for the other models)</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1579,8 +1582,8 @@ Number of inactive compounds: 2004
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Training data size: 3708
-Test data size: 927
+Training data size: 2836
+Test data size: 709
 </pre></div></div>
 </div>
 </section>
@@ -1589,7 +1592,7 @@ Test data size: 927
 <p>We start with a random forest classifier, where we first set the parameters.</p>
 <p>We train the model on a random train-test split and plot the results.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1603,7 +1606,7 @@ Test data size: 927
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1617,13 +1620,13 @@ Test data size: 927
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Sensitivity: 0.90
-Specificity: 0.77
+Sensitivity: 0.91
+Specificity: 0.68
 AUC: 0.90
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1646,7 +1649,7 @@ AUC: 0.90
 <h4 id="Support-vector-classifier">Support vector classifier<a class="headerlink" href="#Support-vector-classifier" title="Permalink to this headline">¶</a></h4>
 <p>Here we train a SVM with a radial-basis function kernel (also: squared-exponential kernel). For more information, see <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.gaussian_process.kernels.RBF.html">sklearn RBF kernel</a>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1664,12 +1667,12 @@ AUC: 0.90
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Sensitivity: 0.92
-Specificity: 0.74
+Specificity: 0.68
 AUC: 0.90
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1692,7 +1695,7 @@ AUC: 0.90
 <h4 id="Neural-network-classifier">Neural network classifier<a class="headerlink" href="#Neural-network-classifier" title="Permalink to this headline">¶</a></h4>
 <p>The last approach we try here is a neural network model. We train an MLPClassifier (Multi-layer Perceptron classifier) with 3 layers, each with 5 neurons. As before, we do the crossvalidation procedure and plot the results. For more information on MLP, see <a class="reference external" href="http://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier.html">sklearn MLPClassifier</a>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1709,13 +1712,13 @@ AUC: 0.90
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Sensitivity: 0.85
-Specificity: 0.73
-AUC: 0.86
+Sensitivity: 0.90
+Specificity: 0.66
+AUC: 0.87
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1739,7 +1742,7 @@ AUC: 0.86
 <h4 id="Cross-validation">Cross-validation<a class="headerlink" href="#Cross-validation" title="Permalink to this headline">¶</a></h4>
 <p>Next, we will perform cross-validation experiments with the three different models. Therefore, we define a helper function for machine learning model training and validation in a cross-validation loop.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1821,7 +1824,7 @@ AUC: 0.86
 <p><strong>Cross-validation</strong></p>
 <p>We now apply cross-validation and show the statistics for all three ML models. In real world conditions, cross-validation usually applies 5 or more folds, but for the sake of performance we will reduce it to 3. You can change the value of <code class="docutils literal notranslate"><span class="pre">N_FOLDS</span></code> in this cell below.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1831,7 +1834,7 @@ AUC: 0.86
 </div>
 <p><em>Note</em>: Next cell takes long to execute</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1850,35 +1853,35 @@ AUC: 0.86
 
 =======
 Model_RF
-Mean accuracy: 0.83     and std : 0.01
-Mean sensitivity: 0.88  and std : 0.02
-Mean specificity: 0.76  and std : 0.01
-Mean AUC: 0.89  and std : 0.01
-Time taken : 2.84s
+Mean accuracy: 0.82     and std : 0.00
+Mean sensitivity: 0.89  and std : 0.01
+Mean specificity: 0.70  and std : 0.01
+Mean AUC: 0.88  and std : 0.01
+Time taken : 0.70s
 
 
 =======
 Model_SVM
-Mean accuracy: 0.84     and std : 0.01
-Mean sensitivity: 0.90  and std : 0.01
-Mean specificity: 0.76  and std : 0.00
+Mean accuracy: 0.82     and std : 0.00
+Mean sensitivity: 0.90  and std : 0.00
+Mean specificity: 0.69  and std : 0.02
 Mean AUC: 0.89  and std : 0.01
-Time taken : 29.97s
+Time taken : 5.16s
 
 
 =======
 Model_ANN
-Mean accuracy: 0.81     and std : 0.00
-Mean sensitivity: 0.86  and std : 0.01
-Mean specificity: 0.73  and std : 0.01
-Mean AUC: 0.87  and std : 0.00
-Time taken : 8.68s
+Mean accuracy: 0.79     and std : 0.01
+Mean sensitivity: 0.88  and std : 0.00
+Mean specificity: 0.65  and std : 0.02
+Mean AUC: 0.85  and std : 0.01
+Time taken : 2.15s
 
 </pre></div></div>
 </div>
 <p>We look at the cross-validation performance for molecules encoded using Morgan fingerprint and not MACCS keys.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1888,7 +1891,7 @@ Time taken : 8.68s
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1900,7 +1903,7 @@ Time taken : 8.68s
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1924,7 +1927,7 @@ Time taken : 8.68s
 <th></th>
 <th>molecule_chembl_id</th>
 <th>smiles</th>
-<th>pIC50</th>
+<th>pKi</th>
 <th>active</th>
 <th>fp</th>
 </tr>
@@ -1932,25 +1935,25 @@ Time taken : 8.68s
 <tbody>
 <tr>
 <th>0</th>
-<td>CHEMBL63786</td>
-<td>Brc1cccc(Nc2ncnc3cc4ccccc4cc23)c1</td>
-<td>11.522879</td>
+<td>CHEMBL2419149</td>
+<td>N#Cc1sc(=S)n(-c2ccccc2)c1/N=C/c1ccc(Br)cc1</td>
+<td>11.376751</td>
 <td>1.0</td>
-<td>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</td>
+<td>[0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, ...</td>
 </tr>
 <tr>
 <th>1</th>
-<td>CHEMBL35820</td>
-<td>CCOc1cc2ncnc(Nc3cccc(Br)c3)c2cc1OCC</td>
-<td>11.221849</td>
+<td>CHEMBL2419144</td>
+<td>N#Cc1sc(=S)n(-c2ccccc2)c1/N=C/c1ccc(F)cc1</td>
+<td>11.327902</td>
 <td>1.0</td>
-<td>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</td>
+<td>[0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, ...</td>
 </tr>
 <tr>
 <th>2</th>
-<td>CHEMBL53711</td>
-<td>CN(C)c1cc2c(Nc3cccc(Br)c3)ncnc2cn1</td>
-<td>11.221849</td>
+<td>CHEMBL1093479</td>
+<td>S=c1sc2c(ncn3nc(-c4ccco4)nc23)n1-c1cccc(I)c1</td>
+<td>11.086186</td>
 <td>1.0</td>
 <td>[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ...</td>
 </tr>
@@ -1960,7 +1963,7 @@ Time taken : 8.68s
 </div>
 <p><em>Note</em>: Next cell takes long to execute</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -1985,43 +1988,169 @@ Time taken : 8.68s
 
 =======
 Model_RF
-Mean accuracy: 0.86     and std : 0.01
-Mean sensitivity: 0.90  and std : 0.01
-Mean specificity: 0.81  and std : 0.00
-Mean AUC: 0.92  and std : 0.01
-Time taken : 8.88s
+Mean accuracy: 0.83     and std : 0.00
+Mean sensitivity: 0.91  and std : 0.01
+Mean specificity: 0.71  and std : 0.02
+Mean AUC: 0.90  and std : 0.01
+Time taken : 2.29s
 
 
 =======
 Model_ANN
 Mean accuracy: 0.81     and std : 0.01
-Mean sensitivity: 0.84  and std : 0.01
-Mean specificity: 0.77  and std : 0.00
-Mean AUC: 0.88  and std : 0.01
-Time taken : 95.45s
+Mean sensitivity: 0.87  and std : 0.01
+Mean specificity: 0.70  and std : 0.01
+Mean AUC: 0.87  and std : 0.01
+Time taken : 11.42s
 
 </pre></div></div>
 </div>
 </section>
 </section>
 </section>
+<section id="Regresion-models">
+<h2 id="Regresion-models">Regresion models<a class="headerlink" href="#Regresion-models" title="Permalink to this headline">¶</a></h2>
+<p>So far, we have been running classification models (is the compound going to be active or not, indicated by the active column we added in the dataframe). The next step is to see if we can also train a regression model, which can be particularly interesting if we want to design our own ligands (e.g. do we predict the compound to actually bind better). We will remove the censored data (the ones with no pChEMBL value), and train another model.</p>
+<p>Make a new function that works with regression:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="k">def</span> <span class="nf">crossvalidation_reg</span><span class="p">(</span><span class="n">ml_model</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">n_folds</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Machine learning model training and validation in a cross-validation loop.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ml_model: sklearn model object</span>
+<span class="sd">        The machine learning model to train.</span>
+<span class="sd">    df: pd.DataFrame</span>
+<span class="sd">        Data set with SMILES and their associated activity labels.</span>
+<span class="sd">    n_folds: int, optional</span>
+<span class="sd">        Number of folds for cross-validation.</span>
+<span class="sd">    verbose: bool, optional</span>
+<span class="sd">        Performance measures are printed.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    None</span>
+
+<span class="sd">    """</span>
+    <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="c1"># Shuffle the indices for the k-fold cross-validation</span>
+    <span class="n">kf</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="n">n_folds</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">SEED</span><span class="p">)</span>
+
+    <span class="c1"># Results for each of the cross-validation folds</span>
+    <span class="n">MAE_per_fold</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">RMSE_per_fold</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Loop over the folds</span>
+    <span class="k">for</span> <span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span> <span class="ow">in</span> <span class="n">kf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+        <span class="c1"># clone model -- we want a fresh copy per fold!</span>
+        <span class="n">fold_model</span> <span class="o">=</span> <span class="n">clone</span><span class="p">(</span><span class="n">ml_model</span><span class="p">)</span>
+        <span class="c1"># Training</span>
+
+        <span class="c1"># Convert the fingerprint and the label to a list</span>
+        <span class="n">train_x</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_index</span><span class="p">]</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">train_y</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">train_index</span><span class="p">]</span><span class="o">.</span><span class="n">pKi</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+        <span class="c1"># Fit the model</span>
+        <span class="n">fold_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_x</span><span class="p">,</span> <span class="n">train_y</span><span class="p">)</span>
+
+        <span class="c1"># Testing</span>
+
+        <span class="c1"># Convert the fingerprint and the label to a list</span>
+        <span class="n">test_x</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">test_y</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span><span class="o">.</span><span class="n">pKi</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+        <span class="n">test_results</span> <span class="o">=</span> <span class="n">fold_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test_x</span><span class="p">)</span>
+        <span class="c1"># Prediction probability on test set</span>
+        <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+
+        <span class="n">MAE_per_fold</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">test_y</span><span class="p">,</span> <span class="n">test_results</span><span class="p">))</span>
+        <span class="c1">#print('Mean Squared Error (MSE):', metrics.mean_squared_error(test_y, test_results))</span>
+        <span class="n">RMSE_per_fold</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">test_y</span><span class="p">,</span> <span class="n">test_results</span><span class="p">)))</span>
+        <span class="c1">#mape = np.mean(np.abs((gt - pred) / np.abs(gt)))</span>
+        <span class="c1">#print('Mean Absolute Percentage Error (MAPE):', round(mape * 100, 2))</span>
+        <span class="c1">#print('Accuracy:', round(100*(1 - mape), 2))</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">MAE_per_fold</span><span class="p">,</span><span class="n">RMSE_per_fold</span><span class="p">,</span><span class="n">fold_model</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Next, create a new dataset (without censored data) and run.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">fingerprint_to_model</span> <span class="o">=</span> <span class="n">compound_df</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="n">label_to_model</span> <span class="o">=</span> <span class="n">compound_df</span><span class="o">.</span><span class="n">pKi</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+<span class="c1"># Split data randomly in train and test set</span>
+<span class="c1"># note that we use test/train_x for the respective fingerprint splits</span>
+<span class="c1"># and test/train_y for the respective label splits</span>
+<span class="p">(</span>
+    <span class="n">static_train_x</span><span class="p">,</span>
+    <span class="n">static_test_x</span><span class="p">,</span>
+    <span class="n">static_train_y</span><span class="p">,</span>
+    <span class="n">static_test_y</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">fingerprint_to_model</span><span class="p">,</span> <span class="n">label_to_model</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">splits</span> <span class="o">=</span> <span class="p">[</span><span class="n">static_train_x</span><span class="p">,</span> <span class="n">static_test_x</span><span class="p">,</span> <span class="n">static_train_y</span><span class="p">,</span> <span class="n">static_test_y</span><span class="p">]</span>
+<span class="c1"># NBVAL_CHECK_OUTPUT</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Training data size:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">static_train_x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Test data size:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">static_test_x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Training data size: 2836
+Test data size: 709
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># Kick out NaN in the pChEMBL values</span>
+<span class="n">compound_df_noNaN</span> <span class="o">=</span> <span class="n">compound_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+<span class="c1"># Append RF Regressor model</span>
+<span class="c1">#models.append({"label": "Model_RF_reg", "model": RandomForestRegressor})</span>
+<span class="c1">#Train model with RandomForestRegressor</span>
+<span class="n">regressor</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">()</span>
+<span class="n">MAE</span><span class="p">,</span> <span class="n">RMSE</span><span class="p">,</span><span class="n">trained_model</span> <span class="o">=</span> <span class="n">crossvalidation_reg</span><span class="p">(</span><span class="n">regressor</span> <span class="p">,</span> <span class="n">compound_df_noNaN</span><span class="p">,</span> <span class="n">n_folds</span><span class="o">=</span><span class="n">N_FOLDS</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span>
+<span class="sa">f</span><span class="s2">"Mean Absolute Error (MAE): </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">MAE</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> </span><span class="se">\t</span><span class="s2">"</span>
+<span class="sa">f</span><span class="s2">"and std : </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">MAE</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">"</span>
+<span class="sa">f</span><span class="s2">"Root Mean Square Error (RMSE): </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">RMSE</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> </span><span class="se">\t</span><span class="s2">"</span>
+<span class="sa">f</span><span class="s2">"and std : </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">RMSE</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">"</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Mean Absolute Error (MAE): 0.51         and std : 0.02
+Root Mean Square Error (RMSE): 0.69     and std : 0.03
+
+</pre></div></div>
+</div>
+</section>
 <section id="Discussion">
 <h2 id="Discussion">Discussion<a class="headerlink" href="#Discussion" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Which model performed best on our data set and why?</p>
-<ul>
-<li><p>All three models perform (very) well on our dataset. The best models are the random forest and support vector machine models which showed a mean AUC of about 90%. Our neural network showed slightly lower results.</p></li>
-<li><p>There might be several reasons that random forest and support vector machine models performed best. Our dataset might be easily separable in active/inactive with some simple tree-like decisions or with the radial basis function, respectively. Thus, there is not such a complex pattern in the fingerprints to do this classification.</p></li>
-<li><p>A cause for the slightly poorer performance of the ANN could be that there was simply too few data to train the model on.</p></li>
-<li><p>Additionally, it is always advisable to have another external validation set for model evaluation.</p></li>
-</ul>
-</li>
-<li><p>Was MACCS the right choice?</p>
-<ul>
-<li><p>Obviously, MACCS was good to start training and validating models to see if a classification is possible.</p></li>
-<li><p>However, MACCS keys are rather short (166 bit) compared to others (2048 bit), as for example Morgan fingerprint. As shown in the last simulation, having longer fingerprint helps the learning process. All tested models performed slightly better using Morgan fingerprints (see mean AUC increase).</p></li>
-</ul>
-</li>
+<li><p>Which model performed best on our data set and why?</p></li>
+<li><p>Was MACCS the right choice?</p></li>
 </ul>
 <section id="Where-can-we-go-from-here?">
 <h3 id="Where-can-we-go-from-here?">Where can we go from here?<a class="headerlink" href="#Where-can-we-go-from-here?" title="Permalink to this headline">¶</a></h3>
@@ -2041,6 +2170,15 @@ Time taken : 95.45s
 <li><p>Which machine learning algorithms do you know?</p></li>
 <li><p>What are necessary prerequisites to successfully apply ML?</p></li>
 </ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
+</div>
 <script type="application/vnd.jupyter.widget-state+json">
 {"state": {}, "version_major": 2, "version_minor": 0}
 </script></section>
