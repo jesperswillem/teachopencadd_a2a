@@ -1,0 +1,89 @@
+TITLE     MDANALYSIS FRAME 0: Created by PDBWriter
+CRYST1    1.000    1.000    1.000  90.00  90.00  90.00 P 1           1
+REMARK     285 UNITARY VALUES FOR THE UNIT CELL AUTOMATICALLY SET
+REMARK     285 BY MDANALYSIS PDBWRITER BECAUSE UNIT CELL INFORMATION
+REMARK     285 WAS MISSING.
+REMARK     285 PROTEIN DATA BANK CONVENTIONS REQUIRE THAT
+REMARK     285 CRYST1 RECORD IS INCLUDED, BUT THE VALUES ON
+REMARK     285 THIS RECORD ARE MEANINGLESS.
+ATOM      1  C1  ZMA X 505       1.447 103.442  56.380  1.00 63.03      A     
+ATOM      2  C2  ZMA X 505       1.153 104.787  56.239  1.00 61.38      A     
+ATOM      3  C3  ZMA X 505      -0.046 105.167  55.650  1.00 60.90      A     
+ATOM      4  O4  ZMA X 505      -0.302 106.503  55.481  1.00 67.49      A     
+ATOM      5  C5  ZMA X 505      -0.939 104.197  55.205  1.00 50.82      A     
+ATOM      6  C6  ZMA X 505      -0.612 102.854  55.327  1.00 50.89      A     
+ATOM      7  C7  ZMA X 505       0.576 102.458  55.915  1.00 52.13      A     
+ATOM      8  C8  ZMA X 505       0.975 101.012  55.950  1.00 48.25      A     
+ATOM      9  C9  ZMA X 505       2.014 100.749  54.897  1.00 44.52      A     
+ATOM     10  N10 ZMA X 505       2.231  99.335  54.683  1.00 39.46      A     
+ATOM     11  C11 ZMA X 505       1.348  98.588  54.069  1.00 37.18      A     
+ATOM     12  N12 ZMA X 505       1.804  97.302  53.874  1.00 32.93      A     
+ATOM     13  N13 ZMA X 505       0.168  99.116  53.641  1.00 33.50      A     
+ATOM     14  C14 ZMA X 505      -0.675  98.322  52.995  1.00 35.07      A     
+ATOM     15  N15 ZMA X 505      -1.856  98.773  52.554  1.00 32.55      A     
+ATOM     16  N16 ZMA X 505      -0.271  97.023  52.759  1.00 34.16      A     
+ATOM     17  N17 ZMA X 505      -1.018  96.014  52.253  1.00 30.28      A     
+ATOM     18  C18 ZMA X 505       0.953  96.552  53.164  1.00 33.50      A     
+ATOM     19  N19 ZMA X 505       1.054  95.262  52.854  1.00 29.56      A     
+ATOM     20  C20 ZMA X 505      -0.167  94.997  52.314  1.00 30.94      A     
+ATOM     21  C21 ZMA X 505      -0.461  93.677  51.832  1.00 24.31      A     
+ATOM     22  C22 ZMA X 505       0.223  92.558  51.716  1.00 27.14      A     
+ATOM     23  C23 ZMA X 505      -0.709  91.568  51.256  1.00 27.02      A     
+ATOM     24  C24 ZMA X 505      -1.885  92.175  51.150  1.00 33.18      A     
+ATOM     25  O25 ZMA X 505      -1.776  93.486  51.494  1.00 31.15      A     
+ATOM     26  H1  ZMA X 505       2.379 103.155  56.866  1.00 75.64      A     
+ATOM     27  H2  ZMA X 505       1.856 105.543  56.585  1.00 73.65      A     
+ATOM     28  HO4 ZMA X 505       0.479 106.860  54.982  1.00 80.99      A     
+ATOM     29  H5  ZMA X 505      -1.890 104.490  54.761  1.00 60.99      A     
+ATOM     30  H6  ZMA X 505      -1.310 102.106  54.953  1.00 61.07      A     
+ATOM     31  H8  ZMA X 505       0.097 100.384  55.806  1.00 57.90      A     
+ATOM     32  H8A ZMA X 505       1.343 100.757  56.943  1.00 57.90      A     
+ATOM     33  H9  ZMA X 505       2.952 101.228  55.174  1.00 53.42      A     
+ATOM     34  H9A ZMA X 505       1.721 101.225  53.962  1.00 53.42      A     
+ATOM     35 HN10 ZMA X 505       3.084  98.891  55.010  1.00 47.35      A     
+ATOM     36 HN15 ZMA X 505      -2.143  99.731  52.734  1.00 39.07      A     
+ATOM     37 HN1A ZMA X 505      -2.492  98.178  52.034  1.00 39.07      A     
+ATOM     38  H22 ZMA X 505       1.281  92.404  51.924  1.00 32.57      A     
+ATOM     39  H23 ZMA X 505      -0.465  90.528  51.044  1.00 32.43      A     
+ATOM     40  H24 ZMA X 505      -2.889  91.869  50.858  1.00 39.81      A     
+CONECT    1    2    7   26
+CONECT    2    1    3   27
+CONECT    3    2    4    5
+CONECT    4    3   28
+CONECT    5    3    6   29
+CONECT    6    5    7   30
+CONECT    7    1    6    8
+CONECT    8    7    9   31   32
+CONECT    9    8   10   33   34
+CONECT   10    9   11   35
+CONECT   11   10   12   13
+CONECT   12   11   18
+CONECT   13   11   14
+CONECT   14   13   15   16
+CONECT   15   14   36   37
+CONECT   16   14   17   18
+CONECT   17   16   20
+CONECT   18   12   16   19
+CONECT   19   18   20
+CONECT   20   17   19   21
+CONECT   21   20   22   25
+CONECT   22   21   23   38
+CONECT   23   22   24   39
+CONECT   24   23   25   40
+CONECT   25   21   24
+CONECT   26    1
+CONECT   27    2
+CONECT   28    4
+CONECT   29    5
+CONECT   30    6
+CONECT   31    8
+CONECT   32    8
+CONECT   33    9
+CONECT   34    9
+CONECT   35   10
+CONECT   36   15
+CONECT   37   15
+CONECT   38   22
+CONECT   39   23
+CONECT   40   24
+END
